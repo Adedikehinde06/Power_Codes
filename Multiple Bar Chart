@@ -1,0 +1,29 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+# create some data
+data1 = [10, 20, 30, 40]
+data2 = [20, 30, 40, 50]
+labels = ['Data 1', 'Data 2', 'Data 3', 'Data 4']
+
+# set the width of the bars
+bar_width = 0.35
+
+# create a figure and axis object
+fig, ax = plt.subplots()
+
+# create two bar plots with different colors
+rects1 = ax.bar(np.arange(len(data1)), data1, bar_width, color='b', label='Data 1')
+rects2 = ax.bar(np.arange(len(data2))+bar_width, data2, bar_width, color='g', label='Data 2')
+
+# add some text for labels, title, and axes ticks
+ax.set_ylabel('Values')
+ax.set_title('Clustered Bar Chart')
+ax.set_xticks(np.arange(len(labels)) + bar_width / 2)
+ax.set_xticklabels(labels)
+
+# add legend
+ax.legend((rects2[0], rects1[0]), ('Data 2', 'Data 1'))
+
+# display the plot
+plt.show()
